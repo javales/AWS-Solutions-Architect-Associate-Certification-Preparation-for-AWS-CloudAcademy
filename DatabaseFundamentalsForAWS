@@ -47,16 +47,80 @@ DynamoDB - cloud native object and document object store
 Amazon Elasticache - cache service running either Redis or Memcache.d cache engines
 
 
-
 AWS NOSQL DATABASES
 # Amazon Non Relation Databases in Depth
 
+Amazon DynamoDB
+- Cloud native
+- For high volumes of records and transactions
+- No need to provision capacity upfront
+- Fully managed
+- Supports both document and key store object types, meaning it can support multiple data types at the same time without us having to define a new schema or field type
+- Good when need to keep growing to meet demand with many different object types stored in it
+- Runs as a web service provisioned from AWS console or API
+- Downloadable DynamoDB available for running on computer or server
+- Encryption at rest
+
+Amazon Elasticache
+- Managed data cache service from open source Redis and Memcache.d database engines
+- Front line cache to respond to Read Requests to an application or database
+- Cache holds frequently accessed temporary copies to reduce loads on other parts of application
+- Supports Two Database Engines
+
+Amazon Elasticache for Redis
+* For Features
+- need complex data types (e.g. strings, hashes, lists, sets, sorted sets, bitmaps,...)
+- need persistence of key store
+- need to encrypt
+- need to replicate cached data
+- need automatic failover if primary node fails
+- need backup and restore abilities
+- need multiple caches
+- need to sort or rake in-memory data sets
+
+Amazon Elasticache for Memcache.d
+* For Simplicity and Speed
+- simplest model possible
+- need to run large nodes with multiple cores or threads
+- need ability to scale in/out number of nodes
+
+Amazon Neptune
+- Native graph database engine optimized for storing data relationships
+- Allows querying graph quickly and efficiently
+- For applications that need to perform a lot of queries and lookups to quickly visualize data
+- Uses Cases: Knowledge Graphs, Recommendation Engines, Network Security
+- Supports Popular Graph Models: Property Graph, W3C RDF
+- Supports Respective Query Languages (allow easily building queries that efficiently navigate highly connected data sets): Apache, TinkerPop, Gremlin, SPARQL
+
+
 AWS RELATIONAL DATABASES
 # AWS Relational Databases in Depth
+- Amazon RDS is Amazon's managed relational database service 
+
+Benefits:
+1 - Ability to scale components - compute metrics independently of each other
+2 - Automatic backups and patching - can configure frequency and when patches applied
+3 - High Availability - multiple AZs in a Region, allowing running a synchronous or asynchronous version of database in a different AZ
+- Microsoft SQL Server service uses SQL Server Mirroring, while the others use Amazon's Fail-over Service
+- Amazon Aurora - instant types copy data in a DB cluster across multiple AZs in a single Region by default 
+4 - Automatic Failure Detection and Recovery
+
+Family:
+MySQL - Community versions, Four Instance Families, Two SSD-backed Instance Storage Options, can increase storage size with no downtime, use InnoDB Storage Engine to allow Point-in-Time restoration
+Microsoft SQL Server - Pay-as-You-Go, service includes license, allows multiple editions of SQL Server, 2008 R2 and up, Two Storage Types (General Purpose SSD, Provisioned IOPS SSD), to migrate to Provisioned IOPS service must export/import to new DB instance, default DB size is 4TB with up to 16TB if Provisioned IOPS, supports multi-AZ deployments, automatic backups at desired frequency, transaction log backed up in 5-minute intervals, allows Point-in-Time Recovery to any one given second, Automatic Backups can be stored up to 35 days, can run manual snapshots of whole database *stored indefinitely*, 
+Microsoft SQL Server Instance Types - General Purpose, Memory Optimized, Burst Support, less support for micro instance types, good for small to medium-sized implementations 
+Microsoft SQL Server Large Clusters - Limitations: Always-on Feature of 2012 Enterprise Edition replication and database log shipping not supported on Amazon RDS
+Oracle Database - multiple editions, licenses, can use own or provided license, automatic patching and backup, product suite integrations, 
+MariaDB - community developed fork of MySQL, 10.1-10.2.11, read replicas, multi-AZ, automatic backups, failover, recovery
+PostgreSQL - balance between No SQL and SQL database benefits, good for compliance, multi-AZ, read replicas, auto backups, AWS Migration Services eases schema migration, Schema Conversion Tool
+Amazon Aurora - cloud native, fork of MySQL, MySQL and PostgreSQL compatible, speed and availability benefits, replicates across 3 AZs by default, cloud native database cluster spans two or more AZs by default, each cluster has one primary instance for read/write, has at least one Aurora replica for read-only, each cluster can have up to 15 Aurora replicas,  
+
 
 # Setting Up The AWS Relational Database Service
+Demo in AWS Console
 
 # Deciding Which Cloud Database to Use
+
 
 SUMMARY
 # Summary
