@@ -4,8 +4,49 @@ INTRODUCTION
 # Introduction
 
 # What is a Cloud Database?
+- Specify Region
+- Connect with ODBC connection
+
 
 # Overview of the AWS Database Services
+- Relational Databases generally support Structured Tables and SQL Operations
+- Use a schema to define tables within the database
+- Create permanent relationships between tables using Constraints and Keys
+- Create and process a View/Function or Stored Procedure using database's native script engine to select the values from a number of tables using an Early Bound Process
+- RDBMS Script Engine - generally built into database to process queries for us, faster, while providing rollback and versioning
+- Relationship Joins + Key Constraints on the tables enable the View to select all the values we need from Person table and Address table
+- DRAWBACK: Software Footprint is larger and more complex than non-relational database
+
+Amazon RDS
+- Allows running in multiple AZs
+- By Default, manages backing up databases for you
+- Provides these Database Families - MySQL, Microsoft SQL Server, Oracle Database, MariaDB and Amazon Aurora (with its own cloud native database engine for enhanced speed), PostgreSQL, Amazon Redshift (cloud native Data Warehouse solution)
+
+Amazon Non Relational Databases
+- Database Families - 
+- Simple Tabular Structure
+- No built-in processing/transaction Engine
+- No Schema, so changes can be made faster
+- Simpler and less dependent on native database code, so lighter in design
+- Can support Non-Structured Data, so best for non-structured Data Types (e.g. Videos, Images, or Data Objects that are not uniform in structure)
+- By Default, different Data Types supported so no changes to schema required when needing to support a new data type
+- By providing just the Data Store, and by keeping code decoupled from the storage layer, requires less computing resources
+- Relationships and Joins are typically managed in Application Code, which might be felt with Inner or Outer Joins within large number of tables or queries
+- No SQL really means Not Only SQL
+- Relational Database uses a persistent connection to use SQL to work with data within it
+- Non-Relational Database generally uses a RESTful HTTP interface, so before access, authentication required, then authorized to perform certain actions
+- EXAMPLE: DynamoDB uses Query Action to retrieve data from any table that has Composite Primary Key which is a Partition Key or Sort Key
+- must use Expression Attribute Values as placeholders in the Expression Parameters such as the Key Expression Parameter and Filter Expression
+- same as using Bind Variables in a Relational Database where you substitute the actual values into the select statement at runtime
+- Can Scale Faster than Relational Databases
+* With a complex set of tables that are regularly joined, best for a Relational Database with a native transactional engine
+* Just stores the data, while Relational Databases store data and provides processing engine 
+
+DynamoDB - cloud native object and document object store
+
+Amazon Elasticache - cache service running either Redis or Memcache.d cache engines
+
+
 
 AWS NOSQL DATABASES
 # Amazon Non Relation Databases in Depth
