@@ -124,3 +124,67 @@ Demo in AWS Console
 
 SUMMARY
 # Summary
+
+QUESTIONS UNKNOWN IN Knowledge Check: Database Fundamentals for AWS
+"A user wants to achieve high availability with a PostgreSQL DB. AWS recommends enabling which Amazon RDS feature to achieve high availability?"
+Subnet Groups, Automated Backup, Multi-AZ deployment, Read Replicas
+
+"Which Amazon RDS database engine offers high availability with server mirroring?"
+MySQL, MariaDB, Oracle, Microsoft SQL Server
+
+
+What statements are accurate descriptions of non-relational databases in general? (Choose 2 answers)
+Each non-relational database table must include a primary key.
+They can scale faster than relational databases.
+Typically more dependent on database code
+Each non-relational table stores a single data type.
+
+Explanation
+Non-relational databases typically scale faster than relational databases, and can store unstructured data, which often 
+allow allows multiple data types to be stored within the same table without updating table fields. While relational tables 
+are able to build relationships between different tables based on many different factors, non-relational database tables all 
+include a primary key which is essential to performing table operations such as create, update, read and delete.
+
+
+QUESTIONS UNKOWN IN Knowledge Check: AWS Storage Fundamentals
+"Which AWS storage service charges for the entire data provisioned rather than the data actually used?"
+EBS, EC2 Instance Store, S3, EFS
+Explanation
+It is important to know the different costs associated with each storage method in AWS. Amazon EBS interprets the 
+utility-based pricing, where you pay for what you use, differently than other services. Unlike S3, for which you pay 
+for the data stored, and Amazon EFS, with a GB per month storage rate, EBS charges for the data provisioned. This means 
+the larger the EBS volume, the larger the immediate cost, regardless of how often the volume is used, or how much data 
+is stored on the volume. 
+
+The argument for this method of charging for storage could be that once you select the EBS volume size, AWS reserves the 
+given amount of storage for you on a piece of its hardware, so you are in fact reserving the entire amount of data even when 
+the volume has unused data. So plan accordingly when selecting your EBS volumes for specific instances.
+
+"requests for your dynamic content sent to"
+original content location, copies of static content in edge location t a new edge location, origin servers in/out of AWS, copies for static content closer to viewers than original content
+
+"snowball e-ink functionality"
+
+"EFS mount target configured within infrastructure placed in"
+subnet, AZ, VPC, or instance in VPC
+Explanation
+An Amazon EFS mount target is not attached to each specific EC2 instance like an EBS volume. A mount target must be created 
+within a VPC in order for the service to work, but it is recommended you create a mount target within each availability zone 
+(AZ) within a VPC.
+
+Technically, one mount target in one availability zone will allow all EC2 instances to connect to the service, but there are 
+additional costs when using a mount target in a different AZ.
+
+"restore an S3 object archived in Glacier"
+Explanation
+To retrieve Amazon S3 data stored in the S3 Glacier storage class, initiate a retrieval request using the Amazon S3 APIs or 
+the Amazon S3 Management Console. The retrieval request creates a temporary copy of your data in the S3 RRS or S3 Standard-IA 
+storage class while leaving the archived data intact in S3 Glacier. You can specify the amount of time in days for which the 
+temporary copy is stored in S3. You can then access your temporary copy from S3 through an Amazon S3 GET request on the 
+archived object.
+
+"efs scale similar to what?"
+Explanation
+Amazon EFS has a similar capacity to that of Amazon S3, because the service capacity can be scaled automatically, if 
+necessary. It also automatically stores data and metadata in multiple availability zones within a region, similar to Amazon 
+S3, which increases the data durability and availability.
