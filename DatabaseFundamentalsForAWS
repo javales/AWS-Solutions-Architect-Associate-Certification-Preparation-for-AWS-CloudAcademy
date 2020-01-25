@@ -64,7 +64,7 @@ Amazon DynamoDB
 Amazon Elasticache
 - Managed data cache service from open source Redis and Memcache.d database engines
 - Front line cache to respond to Read Requests to an application or database
-- Cache holds frequently accessed temporary copies to reduce loads on other parts of application
+- Cache holds frequently accessed temporary copies to reduce load on other parts of application
 - Supports Two Database Engines
 
 Amazon Elasticache for Redis
@@ -102,7 +102,7 @@ Benefits:
 2 - Automatic backups and patching - can configure frequency and when patches applied
 3 - High Availability - multiple AZs in a Region, allowing running a synchronous or asynchronous version of database in a different AZ
 - Microsoft SQL Server service uses SQL Server Mirroring, while the others use Amazon's Fail-over Service
-- Amazon Aurora - instant types copy data in a DB cluster across multiple AZs in a single Region by default 
+- Amazon Aurora - instances copy data in a DB cluster across multiple AZs in a single Region by default 
 4 - Automatic Failure Detection and Recovery
 
 Family:
