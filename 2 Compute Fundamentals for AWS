@@ -6,6 +6,23 @@ WHAT IS COMPUTE?
 
 AWS COMPUTE
 3 EC2 - Elastic Compute Cloud
+# Instance Purchasing Options
+- On-Demand Instances
+- Reserved Instances
+- Scheduled Instances
+- Spot Instances
+- On-Demand Capacity Reservations
+
+## On-Demand Instances
+- paid by the second
+- for short-term
+- work can be interrupted
+- testing and dev environments
+- stopping instances, stops paying for them
+
+## Reserved Instances
+- 
+
 
 4 EC2 - Elastic Container Service
 
