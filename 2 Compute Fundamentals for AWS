@@ -14,14 +14,92 @@ AWS COMPUTE
 - On-Demand Capacity Reservations
 
 ## On-Demand Instances
-- paid by the second
-- for short-term
+- paid by the second, turn up within minutes on demand
+- flat rate determined by instance type
+- for short-term, irregular work
 - work can be interrupted
 - testing and dev environments
-- stopping instances, stops paying for them
+- stop instances, stop paying for them
 
 ## Reserved Instances
+- purchase for set time at reduced cost
+- reduction <= 75%
+- only in 1- or 3-year time frames
+- 3 Payment Methods (with decreasing discount): 1. All Upfront 2. Partial Upfront 3. No Upfront
+- for long-term, predictable workloads
+
+## Scheduled Instances
+- pay on a recurring schedule (daily, weekly, or monthly)
+- allows savings over on-demand instances, BUT charged even if you didn't use it on a scheduled run
+- for temporary workloads
+
+## Spot Instances
+- allow you to bid for unused EC2 compute resources
+- resources NOT guaranteed for a fixed period
+- must bid higher than spot price set by AWS
+- once bid becomes lower than fluctuating spot price, 2-minute warning before termination and removal from AWS env
+- opportunity to bid for LARGE EC2 instances for cheap
+- for processing data and applications that can be suddenly interrupted
+- EXAMPLE USE-CASES: background processing of data
+
+## On-Demand Capacity Reservations
+- reserve capacity (e.g. instance type, platform, and tenancy)
+- within a particular AZ for any time period
+- ensures you have any number of instances you require within AZ immediately
+- can be used in conjunction with reserved instances discount, providing additional savings
+
+# Tenancy
+- underlying host EC2 instance resides on
+
+## Shared Tenancy
+- whatever host available for instance type
+
+## Dedicated Tenancy
+
+### Dedicated Instances
+- hosted on hardware only accessible by your AWS account, no other customers' accounts
+- might be required for internal security policies or external compliance controls
+- incur additional charges due to unused capacity remaining
+- hardware might be shared with other RESOURCES running in your own account
+
+### Dedicated Hosts
+- same as dedicated instances 
+- additional visibility and control over how you can place instances on the physical host
+- allow you to use your existing licenses such as a per-VM license, Windows Server licenses, etc.
+- allow you to use the same host of any number of dedicated instances
 - 
+
+# User Data
+- allow you to run commands that run during the first boot cycle of the instance
+- good for running functions upon boot (e.g. pulling down software, getting OS updates upon boot,... )
+
+# Storage Options
+- 2 Categories:
+1. Persistent Storage (by attaching EBS volumes, separate from EC2 instance, not physically attached, instead network attached storage devices, replicates to other EBS volumes within the same AZ, can encrypt, can snapshot backup to S3, can be different sizes and different performance levels)
+2. Ephemeral Storage (by physically attaching Instance Backed Storage on underlying host, stopping or terminating erases data, unlike EBS volumes cannot detach, )
+
+# Security
+- upon creation of an instance, select a Security Group for your instance
+- Security Group - *Instance*-level Firewall for ingress and egress traffic exceptions (source, ports, and protocols)
+- at end of creation of instances, need to select existing Key Pair (public and private key) or create and download one
+
+## Key Pair 
+- for encrypting and decrypting Linux and Windows EC2 instance login information
+- Public Key - encrypts username and password
+- Public Key - held by AWS
+- Private Key - user responsibility to keep and secure
+- Private Key - Windows: decrypts public key encrypted data to allow login creds access
+- Private Key - Linux: used to remotely connect to the instance via SSH
+- can use same key pair on multiple instances to save us from managing multiple private keys
+- user responsibility to maintain and install lastest OS and security patches released by OS vendor
+
+# Demo
+- 2 Types of Status Checks:
+1. System Status Checks
+- host issue, like power or network loss, and hardware or software issues on underlying host, out of user control, AWS' responsibility
+- resolution: stop instance, restart, to create likeliness instance starts on another physical host (i.e. Don't Reboot)
+2. Instance Status Checks
+- user responsibility, instance configuration issue, like network configuration, corrupt file systems, exhausted memory, incompatible kernel
 
 
 4 EC2 - Elastic Container Service
